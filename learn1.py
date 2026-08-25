@@ -39,6 +39,21 @@ class user:
             ut.append(up)
         print("your details are saved successfully")
         print("your name is: ", ut)
+        
+class cyberark_login_jwt_pvwa_signin:
+    def __init__(self, username, password, role):
+        self.username = username,
+        self.password = password,
+        self.role = role,
+        
+    payload = {
+        username: "username",
+        password: "password",
+        role: "role"
+    }
+        
+    
+        
   
 if __name__ == "__main__":
     r = role()
