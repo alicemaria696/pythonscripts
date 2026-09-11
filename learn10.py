@@ -82,7 +82,7 @@ for u,ip in user.items():
     else:
         print("none")"""
         
-role_changes = [
+"""role_changes = [
     ("alice", "reader", "developer"),
     ("bob", "reader", "admin"),
     ("alice", "developer", "admin"),
@@ -93,7 +93,7 @@ role_changes = [
     ("alice", "admin", "reader"),
 ]
 
-user_role = {}
+user_role = {}"""
 
 """for u, old_role, new_role in role_changes:
     if u in user_role:
@@ -121,7 +121,7 @@ for u, (o,r) in user_role.items():
 if "admin" in o and r:
 print("user with role as admin :", u)"""
         
-for u, o, r in role_changes:
+"""for u, o, r in role_changes:
     if u in user_role:
         user_role[u].add(r)
     else:
@@ -132,12 +132,38 @@ for u, r in user_role.items():
     if "admin" in r:
         print("user with admin role :", u)
     else:
-        print("user with no admin role :", u)
-
-
-
+        print("user with no admin role :", u)"""
         
+events = [
+    ("alice", "login"),
+    ("bob", "login"),
+    ("alice", "failed"),
+    ("alice", "failed"),
+    ("charlie", "login"),
+    ("bob", "failed"),
+    ("alice", "failed"),
+    ("bob", "failed"),
+    ("charlie", "failed"),
+]
+
+status ={}
+
+for u,r in events:
+    if u in status:
+        status[u].append(r)
+    else:
+        status[u] = [r]
+print("User and event list :", status)
+
+def events():
+    for s,e in status.items():
+        if e.count("failed") >=3:
+            yield print("user with failed attempts are:", s)
+        else:
+            yield print("users with failed attempts less than twice:", s)
         
-
-
+r = events()
+print(next(r))
+print(next(r))
+print(next(r))
      
